@@ -1,13 +1,15 @@
-
-import React, { useState, useEffect } from 'react';
-import { Line, Bar } from 'react-chartjs-2';
-import 'chart.js/auto';
+import React, { useState, useEffect } from "react";
+import { Line, Bar } from "react-chartjs-2";
+import "chart.js/auto";
+import MainOne from "./MainOne";
+import MainThree from "./MainThree";
+import MainTwo from "./MainTwo";
 
 export default function OverView() {
   const [metrics, setMetrics] = useState({
-    userCount: 10001,
-    revenue: 5000,
-    activeSessions: 120,
+    userCount: 100,
+    revenue: 500,
+    activeSessions: 80,
   });
 
   // Sample data for charts
@@ -17,8 +19,8 @@ export default function OverView() {
       {
         label: "User Growth",
         data: [100, 200, 300, 400, 500],
-        borderColor: "rgba(75, 192, 192, 1)",
-        backgroundColor: "rgba(75, 192, 192, 0.2)",
+        borderColor: "green",
+        backgroundColor: "blue",
         tension: 0.4,
       },
     ],
@@ -32,10 +34,11 @@ export default function OverView() {
         activeSessions:
           prevMetrics.activeSessions + Math.floor(Math.random() * 10 - 5),
       }));
-    }, 5000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, []);
+
   return (
     <>
       <div className="p-6 space-y-6 bg-gray-100 min-h-screen">
@@ -67,13 +70,13 @@ export default function OverView() {
             <h3 className="text-lg font-semibold mb-4">Sales Performance</h3>
             <Bar
               data={{
-                labels: ["Q1", "Q2", "Q3", "Q4"],
+                labels: ["Q1", "Q2", "Q3", "Q4","Q5"],
                 datasets: [
                   {
                     label: "Sales ($)",
-                    data: [5000, 7000, 8000, 10000],
-                    backgroundColor: "rgba(153, 102, 255, 0.2)",
-                    borderColor: "rgba(153, 102, 255, 1)",
+                    data: [5000, 7000, 8000, 10000,12000],
+                    backgroundColor: "red",
+                    borderColor: "blue",
                     borderWidth: 1,
                   },
                 ],
@@ -82,6 +85,11 @@ export default function OverView() {
           </div>
         </div>
       </div>
+
+      <MainOne />
+      <MainTwo />
+
+      <MainThree />
     </>
   );
 }
