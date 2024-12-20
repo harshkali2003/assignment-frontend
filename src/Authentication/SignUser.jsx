@@ -93,7 +93,7 @@ export default function SignUser() {
               onClick={SignUser}
               className="w-full px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Sign In
+              Sign Up
             </button>
           </form>
           <p className="text-sm text-center text-gray-600">

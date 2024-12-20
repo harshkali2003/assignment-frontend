@@ -6,23 +6,27 @@ export default function LogUser() {
   const [password , setPassword] = useState("")
   const navigate = useNavigate()
 
-  const LogUser =async (e)=>{
-    e.preventDefault()
-    let data = await fetch('http://localhost:5000/user/log' , {
-      method:"post",
-      body:JSON.stringify({email,password}),
-      headers:{"Content-Type" : "application/json"}
-    })
-    let result = await data.json()
-    if(result){
-      navigate('/')
-      alert("Successfully Logged In")
-      localStorage.setItem('User' , JSON.stringify(result.data))
-      localStorage.setItem("Token" ,JSON.stringify(result.auth))
-    }else{
-      alert("error occurred")
+
+
+  
+  const  LogUser  = async (e) => {
+    e.preventDefault();
+    let data = await fetch("http://localhost:5000/user/log", {
+      method: "post",
+      body: JSON.stringify({ email, password }),
+      headers: { "Content-Type": "application/json" },
+    });
+    let result = await data.json();
+    if (result) {
+      navigate("/");
+      alert("Successfully Logged in");
+      localStorage.setItem("User", JSON.stringify(result.data));
+      localStorage.setItem('Token' , JSON.stringify(result.auth))
+    } else {
+      navigate('/login')
+      alert("error occurred");
     }
-  }
+  };
   return (
     <>
       <div className="flex items-center justify-center min-h-screen bg-blue-400">

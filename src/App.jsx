@@ -19,7 +19,7 @@ function App() {
          <Route path="/sign" element={<SignUser/>} />
          <Route path="/setting" element={<Settings/>} />
          <Route path="/analytics" element={<Analytics/>} />
-         <Route path="/updateProfile" element={<UpdateProfile/>} />
+         <Route path="/updateProfile/:id" element={<UpdateProfile/>} />
         </Routes>
         
       </BrowserRouter>

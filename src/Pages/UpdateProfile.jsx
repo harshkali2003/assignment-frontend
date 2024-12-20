@@ -16,6 +16,7 @@ export default function UpdateProfile() {
   const getUserDetails = async () => {
     let data = await fetch(`http://localhost:5000/user/${params.id}`);
     let result = await data.json();
+    console.log(result);
     setName(result.name)
     setEmail(result.email)
     setPassword(result.password)
@@ -26,7 +27,7 @@ export default function UpdateProfile() {
     let data = await fetch(`http://localhost:5000/user/${params.id}`, {
       method: "Put",
       body: JSON.stringify({ name, email, password}),
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json" ,  authorization :`bearer ${JSON.parse(localStorage.getItem('Token'))}`  },
     });
     let result = await data.json();
     if (result) {

@@ -1,4 +1,6 @@
 import React, {useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 
 export default function Analytics() {
   const [data, setData] = useState([]);
@@ -35,7 +37,7 @@ export default function Analytics() {
             <tbody>
               {data.map((item , index) => (
                 <tr
-                  key={item.id}
+                  key={item._id}
                   className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                 >
                   <td className="border border-gray-300 px-4 py-2">
@@ -47,7 +49,13 @@ export default function Analytics() {
                   <td className="border border-gray-300 px-4 py-2">
                     {item.email}
                   </td>
-                 
+                 <td className="border border-gray-300 px-4 py-2">
+                 <button>
+                        <Link to={"/updateProfile/" +item._id}>
+                        <img src="https://png.pngtree.com/element_our/20190528/ourmid/pngtree-black-edit-icon-image_1130448.jpg" alt="update" className="h-20 w-20" />
+                        </Link>
+                      </button>
+                 </td>
                 </tr>
               ))}
             </tbody>

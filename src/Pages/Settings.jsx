@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 
 export default function Settings() {
   const auth = localStorage.getItem('User')
@@ -18,12 +18,7 @@ export default function Settings() {
             </p>
             
 
-            <Link
-              to="/updateProfile"
-              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-            >
-              Edit Profile
-            </Link>
+            
           </div>
         </div>
       </div>
